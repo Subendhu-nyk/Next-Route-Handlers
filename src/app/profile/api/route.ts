@@ -1,4 +1,4 @@
-import { headers } from "next/headers"
+import { cookies, headers } from "next/headers"
 import { NextRequest } from "next/server"
 
 
@@ -8,6 +8,10 @@ export async function GET(request:NextRequest){
     // const requestHeaders= new Headers(request.headers)
     // const headerList=headers()
     // Both works same
+    
+    cookies().set("resultsPerPage","20")
+    console.log(cookies().get('resultsPerPage'))
+
 
     const theme=request.cookies.get("theme")
     console.log(theme)
